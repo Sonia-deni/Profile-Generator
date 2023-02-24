@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Sonia-deni/Profile-Generator#readme",
   "dependencies": {
-    "inquirer": "^9.1.4",
+    "inquirer": "^6.5.0",
     "jest": "^29.4.3"
   }
 }
