@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve("./", "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./src/page-template.js");
@@ -52,7 +52,6 @@ const createManager = async () => {
         employee.officeNumber = val.managerOfficeNo;
         const teamManager = new Manager(employee.name, employee.employeeID, employee.email, employee.officeNumber);
         team.push(teamManager);
-        console.log(team);
         nextEmployeeType();
       });
     }
@@ -116,9 +115,15 @@ const createManager = async () => {
                   createIntern();
                 } else{
                     console.log("Team complete!");
-                    process.exit(0);
+                    const generateHTML = render(team);
+                    createPage(generateHTML);
                 }
               });
+}
+
+const createPage = (html) => {
+    fs.writeFile(outputPath, html, "utf-8", (err) =>
+    err ? console.error(err) : console.log('html written'));
 }
 
  createManager();
