@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const validator = require('email-validator');
 
 const OUTPUT_DIR = path.resolve("./", "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -32,12 +33,13 @@ const employeeQuestions = () => {
                 type: 'input',
                 name: 'email',
                 message: 'Please enter email address',
-                validate: (email) => {if(email.length>0){return true} else{console.log('Cannot be empty'); return false}}
+                validate: (email) => {if(validator.validate(email)){return true} else{console.log('Please enter a valid email address'); return false}}
               },
             ]);
 }
 
 const createManager = async () => {
+    console.log("Please enter Team manager details");
     const employee = await employeeQuestions();
      inquirer
       .prompt([
