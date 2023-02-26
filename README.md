@@ -26,9 +26,8 @@
   ## License
   This application is covered under the MIT license. Please click the link at the top of the page for more information. 
 
-  ## Contributing
-  Guidelines for contributions:  
-  Please fork to contribute  
+  ## Credits
+  [Assignment] https://courses.bootcampspot.com/courses/3021/assignments/44729?module_item_id=832555
 
   ## Tests
   Test instructions:  
