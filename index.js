@@ -27,7 +27,7 @@ const employeeQuestions = () => {
                 type: 'input',
                 name: 'employeeID',
                 message: 'Please enter Employee ID',
-                validate: (employeeID) => {if(employeeID.length>0){return true} else{console.log('Cannot be empty'); return false}}
+                validate: (employeeID) => {if(/^[0-9]+$/.test(employeeID)){return true} else{console.log('Please enter a number'); return false}}
               },
               {
                 type: 'input',
@@ -47,7 +47,7 @@ const createManager = async () => {
                 type: 'input',
                 name: 'managerOfficeNo',
                 message: 'Please enter the team manager office number',
-                validate: (officeNo) => {if(officeNo.length>0){return true} else{console.log('Cannot be empty'); return false}}
+                validate: (managerOfficeNo) => {if(/^[0-9]+$/.test(managerOfficeNo)){return true} else{console.log('Cannot be empty'); return false}}
               }
         ])
       .then(val => {
